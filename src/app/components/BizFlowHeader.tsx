@@ -25,7 +25,7 @@ const BizFlowHeader: FC = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const location = useLocation();
   const screens = Grid.useBreakpoint();
-  const showMenu = !screens.lg
+  const showMenu = !screens.lg;
   const pathToKeyMap: Record<string, string> = {
     "/platform": "platform",
     "/solutions&services": "solutions",
@@ -70,7 +70,6 @@ const BizFlowHeader: FC = () => {
   const handleDrawerClose = () => {
     setDrawerVisible(false);
   };
-  
 
   return (
     <div ref={parentRef}>
@@ -158,6 +157,7 @@ const BizFlowHeader: FC = () => {
               <>
                 <MenuOutlined
                   style={{
+                    paddingLeft: "8px",
                     color: "#75C143",
                     fontSize: "16px",
                     cursor: "pointer",

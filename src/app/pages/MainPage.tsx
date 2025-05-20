@@ -180,13 +180,13 @@ const MainPage: React.FC = () => {
                   interval={4000}
                   transitionTime={600}
                   showIndicators
+                  
                 >
                   {images.map((img, i) => (
-                    <div key={i}>
+                    <div key={i}  onClick={() => navigate(solutionsPath)}>
                       <img
                         src={img.src}
                         alt={img.alt}
-                        onClick={() => navigate(solutionsPath)}
                       />
                     </div>
                   ))}

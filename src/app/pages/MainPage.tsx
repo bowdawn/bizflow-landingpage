@@ -183,7 +183,7 @@ const MainPage: React.FC = () => {
                   
                 >
                   {images.map((img, i) => (
-                    <div key={i}  onClick={() => navigate(solutionsPath)}>
+                    <div key={i}  className="carousel-item" onClick={() => navigate(solutionsPath)}>
                       <img
                         src={img.src}
                         alt={img.alt}

@@ -1,27 +1,27 @@
-import { Button, Col, Space, Grid, ConfigProvider, Row } from "antd";
 import React from "react";
+import { Button, Col, Space, Grid, ConfigProvider, Row } from "antd";
+import { CheckSquareOutlined } from "@ant-design/icons";
+import { Carousel } from "react-responsive-carousel";
 import { useNavigate } from "react-router-dom";
+import { contactusPath, platformPath, solutionsPath } from "../routes/routes";
 import BizFlowHeader from "../components/BizFlowHeader";
+import BizFlowFooter from "../components/BizFlowFooter";
 import CustomLayout from "../components/CustomLayout";
 import CustomContent from "../components/CustomContent";
 import CustomRow from "../components/CustomRow";
+import CustomSpace from "../components/CustomSpace";
 import ScrollableContainer from "../components/ScrollableContainer";
-import CustomSpinContainer from "../components/CustomSpinContainer";
-import vidPath from "../../core/videos/bizflow_m_video.mp4";
 import CustomTitle from "../components/CustomTitle";
 import CustomText from "../components/CustomText";
+import vidPath from "../../core/videos/bizflow_m_video.mp4";
 import landingCarouselPic1 from "../../core/images/new_landing_midcarousel1_272x427.png";
 import landingCarouselPic2 from "../../core/images/new_landing_midcarousel2_272x427.png";
 import landingCarouselPic3 from "../../core/images/new_landing_midcarousel3_272x427.png";
 import landingCarouselPic4 from "../../core/images/new_landing_midcarousel4_272x427.png";
 import landingBottomPic1 from "../../core/images/new_landing_bottom1.png";
 import landingBottomPic2 from "../../core/images/new_landing_bottom2.png";
-import BizFlowFooter from "../components/BizFlowFooter";
-import CustomSpace from "../components/CustomSpace";
-import { contactusPath, platformPath, solutionsPath } from "../routes/routes";
-import { CheckSquareOutlined } from "@ant-design/icons";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const checklistItems1 = [
   "Build custom solutions fast using drag-and-drop tools that let citizen developers create apps and visualizations without coding.",
@@ -39,30 +39,20 @@ const checklistItems2 = [
 const images = [
   {
     src: landingCarouselPic1,
-    alt: "reduce cycle time from 5 hours to 15 minutes",
+    alt: "Reduce cycle time from 5 hours to 15 minutes",
   },
   {
     src: landingCarouselPic2,
-    alt: "creates more than $ 2 million in efficiencies annually",
+    alt: "Creates more than $2 million in efficiencies annually",
   },
-  {
-    src: landingCarouselPic3,
-    alt: "from hours of waiting to real time",
-  },
-  {
-    src: landingCarouselPic4,
-    alt: "paper forms to automated platform",
-  },
+  { src: landingCarouselPic3, alt: "From hours of waiting to real-time" },
+  { src: landingCarouselPic4, alt: "Paper forms to automated platform" },
 ];
 
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
-
-  const showSpinning = false;
-
   const { useBreakpoint } = Grid;
   const screens = useBreakpoint();
-  console.log(screens.lg);
 
   const section1Info = (
     <CustomSpace
@@ -72,38 +62,33 @@ const MainPage: React.FC = () => {
       size={16}
     >
       <Row justify={screens.lg ? "start" : "center"}>
-        <CustomTitle white level={screens.lg?  1 : 3 }>
+        <CustomTitle white level={screens.lg ? 1 : 3}>
           <Space
             direction="vertical"
             align={screens.lg ? "start" : "center"}
             size={0}
           >
             <div>BizFlow M Portal:</div>
-            <div> Workflows. Simplified.</div>
+            <div>Workflows. Simplified.</div>
           </Space>
         </CustomTitle>
       </Row>
 
       <CustomText white center={!screens.lg}>
         BizFlow M portal simplifies work distribution and streamlines the flow
-        of work by centralizing tasks in a single place
+        of work by centralizing tasks in a single place.
       </CustomText>
+
       <CustomRow>
-        <ConfigProvider
-          theme={{
-            token: {
-              colorPrimary: "#1D4CB1",
-            },
-          }}
-        >
+        <ConfigProvider theme={{ token: { colorPrimary: "#1D4CB1" } }}>
           <CustomSpace
-            block={screens.lg ? false : true}
+            block={!screens.lg}
             direction={screens.lg ? "horizontal" : "vertical"}
             align="center"
             size={16}
           >
             <Button
-              block={screens.lg ? false : true}
+              block={!screens.lg}
               type="primary"
               shape="round"
               onClick={() => navigate(platformPath)}
@@ -111,7 +96,7 @@ const MainPage: React.FC = () => {
               Explore the Platform
             </Button>
             <Button
-              block={screens.lg ? false : true}
+              block={!screens.lg}
               shape="round"
               onClick={() => navigate(contactusPath)}
             >
@@ -122,13 +107,6 @@ const MainPage: React.FC = () => {
       </CustomRow>
     </CustomSpace>
   );
-  const contentStyle: React.CSSProperties = {
-    height: "160px",
-    color: "#fff",
-    lineHeight: "160px",
-    textAlign: "center",
-    background: "#364d79",
-  };
 
   return (
     <CustomLayout fullscreen relative>
@@ -144,10 +122,10 @@ const MainPage: React.FC = () => {
             <CustomContent centerbox>
               <CustomRow
                 className="ant-row-section-content"
-                justify={"center"}
-                align={"middle"}
+                justify="center"
+                align="middle"
               >
-                {screens.lg ? <Col span={12}>{section1Info}</Col> : null}
+                {screens.lg && <Col span={12}>{section1Info}</Col>}
                 <Col span={screens.lg ? 12 : 24}>
                   <div
                     className={`video-container${
@@ -155,7 +133,7 @@ const MainPage: React.FC = () => {
                     }`}
                   >
                     <video
-                      width={"100%"}
+                      width="100%"
                       autoPlay
                       loop
                       muted
@@ -165,7 +143,7 @@ const MainPage: React.FC = () => {
                     </video>
                   </div>
                 </Col>
-                {screens.lg ? null : <Col span={24}>{section1Info} </Col>}
+                {!screens.lg && <Col span={24}>{section1Info}</Col>}
               </CustomRow>
             </CustomContent>
           </CustomRow>
@@ -176,47 +154,22 @@ const MainPage: React.FC = () => {
             align="middle"
           >
             <Space direction="vertical" align="center" size={30}>
-              <label className="gradient-text" >
+              <label className="gradient-text">
                 Innovate and be more efficient with BizFlow M
               </label>
               {screens.lg ? (
                 <CustomRow>
-                  <Col span={6}>
-                    <img
-                      onClick={() => navigate(solutionsPath)}
-                      width={"100%"}
-                      className="clickable-bounce"
-                      src={landingCarouselPic1}
-                      alt="reduce cycle time from 5 hours to 15 minutes"
-                    />
-                  </Col>
-                  <Col span={6}>
-                    <img
-                      className="clickable-bounce"
-                      onClick={() => navigate(solutionsPath)}
-                      width={"100%"}
-                      src={landingCarouselPic2}
-                      alt="creates more than $ 2 million in efficiencies annually"
-                    />
-                  </Col>
-                  <Col span={6}>
-                    <img
-                      onClick={() => navigate(solutionsPath)}
-                      width={"100%"}
-                      className="clickable-bounce"
-                      src={landingCarouselPic3}
-                      alt="from hours of waiting to real time"
-                    />
-                  </Col>
-                  <Col span={6}>
-                    <img
-                      onClick={() => navigate(solutionsPath)}
-                      width={"100%"}
-                      className="clickable-bounce"
-                      src={landingCarouselPic4}
-                      alt="paper forms to automated platform"
-                    />
-                  </Col>
+                  {images.map((img, i) => (
+                    <Col key={i} span={6}>
+                      <img
+                        className="clickable-bounce"
+                        src={img.src}
+                        alt={img.alt}
+                        width="100%"
+                        onClick={() => navigate(solutionsPath)}
+                      />
+                    </Col>
+                  ))}
                 </CustomRow>
               ) : (
                 <Carousel
@@ -224,14 +177,17 @@ const MainPage: React.FC = () => {
                   infiniteLoop
                   showThumbs={false}
                   showStatus={false}
-                  showIndicators={true}
                   interval={4000}
                   transitionTime={600}
+                  showIndicators
                 >
-                  {images.map((image, index) => (
-                    <div key={index}>
-                      <img src={image.src} alt={image.alt} />
-              
+                  {images.map((img, i) => (
+                    <div key={i}>
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        onClick={() => navigate(solutionsPath)}
+                      />
                     </div>
                   ))}
                 </Carousel>
@@ -247,21 +203,18 @@ const MainPage: React.FC = () => {
             <CustomContent centerbox>
               <CustomRow
                 className="ant-row-section-content"
-                justify={"center"}
-                align={"middle"}
+                justify="center"
+                align="middle"
               >
-                {/* Image left (mobile view only) */}
                 {!screens.lg && (
                   <Col span={24} className="image-container">
                     <img
                       width="100%"
                       src={landingBottomPic1}
-                      alt="low code, collaboration, operational efficiency, cutting codes"
+                      alt="low code, collaboration, operational efficiency"
                     />
                   </Col>
                 )}
-
-                {/* Text content */}
                 <Col span={screens.lg ? 12 : 24}>
                   <CustomSpace
                     block
@@ -269,17 +222,20 @@ const MainPage: React.FC = () => {
                     align="center"
                     size={16}
                   >
-                    <CustomTitle white  level={screens.lg?  1 : 3 } center={!screens.lg}>Improve the Flow of Work</CustomTitle>
+                    <CustomTitle
+                      white
+                      level={screens.lg ? 1 : 3}
+                      center={!screens.lg}
+                    >
+                      Improve the Flow of Work
+                    </CustomTitle>
                     <CustomText white>
                       Transform and simplify how your organization manages tasks
                     </CustomText>
-                    {checklistItems1.map((item, index) => (
-                      <Space key={index} align="start" size={20}>
+                    {checklistItems1.map((item, i) => (
+                      <Space key={i} align="start" size={20}>
                         <CheckSquareOutlined
-                          style={{
-                            color: "#1D4CB1",
-                            fontSize: "35px",
-                          }}
+                          style={{ color: "#1D4CB1", fontSize: "35px" }}
                         />
                         <CustomText white start>
                           {item}
@@ -288,8 +244,6 @@ const MainPage: React.FC = () => {
                     ))}
                   </CustomSpace>
                 </Col>
-
-                {/* Image right (desktop view only) */}
                 {screens.lg && (
                   <Col
                     span={12}
@@ -298,7 +252,7 @@ const MainPage: React.FC = () => {
                     <img
                       width="100%"
                       src={landingBottomPic1}
-                      alt="low code, collaboration, operational efficiency, cutting codes"
+                      alt="low code, collaboration, operational efficiency"
                     />
                   </Col>
                 )}
@@ -314,8 +268,8 @@ const MainPage: React.FC = () => {
             <CustomContent centerbox>
               <CustomRow
                 className="ant-row-section-content"
-                justify={"center"}
-                align={"middle"}
+                justify="center"
+                align="middle"
               >
                 <Col
                   span={screens.lg ? 12 : 24}
@@ -324,7 +278,7 @@ const MainPage: React.FC = () => {
                   }`}
                 >
                   <img
-                    width={"100%"}
+                    width="100%"
                     src={landingBottomPic2}
                     alt="organization management, progress report & dashboards, web-based process modeling, workforce management, bizflow m portal, api integration"
                   />
@@ -337,14 +291,17 @@ const MainPage: React.FC = () => {
                     size={16}
                     style={{}}
                   >
-                    <CustomTitle  level={screens.lg?  1 : 3 } center={!screens.lg}  >Centralize Your Flow of Work</CustomTitle>
-
+                    <CustomTitle
+                      level={screens.lg ? 1 : 3}
+                      center={!screens.lg}
+                    >
+                      Centralize Your Flow of Work
+                    </CustomTitle>
                     <CustomText>
                       Allow users to initiate, track, and complete tasks from a
                       single inbox
                     </CustomText>
-
-                    {checklistItems1.map((item, index) => (
+                    {checklistItems2.map((item, index) => (
                       <Space key={index} align="start" size={20}>
                         <CheckSquareOutlined
                           style={{
@@ -362,19 +319,9 @@ const MainPage: React.FC = () => {
           </CustomRow>
           <BizFlowFooter />
         </CustomContent>
-
-        <CustomSpinContainer
-          spinners={[
-            {
-              condition: showSpinning,
-              spinning: true,
-              fullscreen: true,
-              tip: "Page is loading ...",
-            },
-          ]}
-        />
       </ScrollableContainer>
     </CustomLayout>
   );
 };
+
 export default MainPage;

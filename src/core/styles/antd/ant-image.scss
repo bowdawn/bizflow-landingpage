@@ -1,0 +1,66 @@
+.ant-image,
+.ant-image-preview-wrap,
+.ant-image-mask,
+.ant-image img,
+.ant-image-preview-wrap img {
+  border-radius: 6px;
+}
+
+.video-container {
+  aspect-ratio: 16/9;
+  width: 100%;
+  overflow: hidden;
+
+  * {
+    border-radius: 12px;
+  }
+}
+
+.video-container-right {
+  padding-left: 50px !important;
+}
+
+.image-container {
+  * {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}
+
+.image-container-right {
+  padding-left: 50px !important;
+}
+
+.image-container-left {
+  padding-right: 50px !important;
+}
+
+.clickable-bounce {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.clickable-bounce:hover {
+  animation: bounce-down-up-down-up 0.9s ease-in-out;
+}
+
+@keyframes bounce-down-up-down-up {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(6px); /* down */
+  }
+  40% {
+    transform: translateY(-5px); /* up */
+  }
+  60% {
+    transform: translateY(4px); /* down again */
+  }
+  80% {
+    transform: translateY(-3px); /* up again */
+  }
+  100% {
+    transform: translateY(0); /* back to original */
+  }
+}

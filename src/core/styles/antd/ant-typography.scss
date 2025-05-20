@@ -1,0 +1,42 @@
+.ant-layout-footer .ant-link-white,
+.ant-layout-footer .ant-text-white {
+  color: #ffffffb3;
+  transition: color 0.2s ease;
+}
+.ant-layout-footer .ant-link-white:hover {
+  color: white;
+}
+.ant-text-white {
+  color: white;
+}
+.ant-text-center {
+  display: block;
+  text-align: center;
+}
+.ant-text-start {
+  display: block;
+  text-align: start;
+}
+.gradient-text {
+  background: linear-gradient(
+    38deg,
+    rgba(168, 0, 203, 1) 25%,
+    rgba(0, 48, 147, 1) 50%,
+    rgba(0, 158, 228, 1) 91%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 45px;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  display: block;
+}
+
+
+@media (max-width: 992px) { 
+    .gradient-text { 
+        font-size: 1.8rem;
+    }
+
+}
